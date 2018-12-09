@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" />
+        
+		<link rel="stylesheet" href="./css/bootstrap.min.css">
+
+		<script type="text/javascript" src="./js/bootstrap.min.js" ></script>	        
+        <title>Egov App 1</title>
+    </head>
+
+    <body>
+        <script type="text/javascript" src="cordova.js"></script>
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+	    <a class="navbar-brand" href="#">Egov App 2</a>
+	  </nav>
+	 <div id="div_main">
+	 <table class="table table-condensed">
+	 	<tr>
+	 		<td>Username</td>
+	 		<td><input type="text" name="username" id="username"></td>
+	 	</tr>
+	 	<tr>
+	 		<td>Mật khẩu</td>
+	 		<td><input type="text" name="password" id="password"></td>
+	 	</tr>
+	 	<tr>
+	 		<td colspan="2"><span class="btn btn-warning btn-login">Đăng nhập</span></td>
+	 	</tr>
+	 </table>	
+	 	
+	 	
+	 	
+
+	 </div> 
+    </body>
+</html>
+
+<script >
+// Check browser support
+if (typeof(Storage) !== "undefined") {
+
+    localStorage.setItem("username", "Smith");
+    username = localStorage.getItem("username");
+    if(username.length > 0){
+
+    }
+    alert(username);
+} else {
+    alert("Sorry, your browser does not support Web Storage...");
+}
+</script>
