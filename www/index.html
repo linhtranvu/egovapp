@@ -43,12 +43,12 @@
 // Check browser support
 if (typeof(Storage) !== "undefined") {
 
-    localStorage.setItem("lastname", "Smith");
+    localStorage.setItem("username", "Smith");
     username = localStorage.getItem("username");
     if(username.length > 0){
 
     }
-    alert(lastname);
+    alert(username);
 } else {
     alert("Sorry, your browser does not support Web Storage...");
 }
