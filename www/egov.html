@@ -1,0 +1,16 @@
+
+
+<iframe src="" id="egovframe" border="0px" width="100%" height="5000px">
+	
+</iframe>
+
+<script type="text/javascript">
+
+	var	domain = "http://cbccvc.danang.gov.vn/";
+	// var	domain = "http://localhost/cbccvc_dev/";
+
+	var username = localStorage.getItem("username");
+	url = domain+"index.php?option=com_snv&view=egovapp&task=home&username="+username;
+	document.getElementById('egovframe').src = url;
+
+</script>
