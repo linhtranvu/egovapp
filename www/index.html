@@ -46,7 +46,8 @@
 
 <script type="text/javascript">
 
-var domain = "http://localhost/cbccvc_dev/index.php?option=com_snv&view=egovapp&task=home";
+var	domain = "http://cbccvc.danang.gov.vn/";
+// var	domain = "http://localhost/cbccvc_dev/";
 
 $(document).ready(function() {
 
@@ -61,9 +62,9 @@ $(document).ready(function() {
 			$("#div_main").html(data);
 			if($("#tableCustomCSS").length > 0){
 				username = $("#tableCustomCSS > tbody > tr:nth-child(2) > td > label.egov-label-bold").text().trim();
-				alert(username);
+				// alert(username);
 			    localStorage.setItem("username", username); 
-
+			    loadEgov();
 			    
 				
 			}
