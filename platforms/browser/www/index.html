@@ -3,10 +3,14 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-        
+
+
 		<link rel="stylesheet" href="./css/bootstrap.min.css">
 
-		<script type="text/javascript" src="./js/bootstrap.min.js" ></script>	        
+		<script type="text/javascript" src="./js/bootstrap.min.js" ></script>	  
+		<script type="text/javascript" src="./js/jquery-1.11.3.min.js" ></script>	  
+
+		    
         <title>Egov App 1</title>
     </head>
 
@@ -17,19 +21,21 @@
 	    <a class="navbar-brand" href="#">Egov App 2</a>
 	  </nav>
 	 <div id="div_main">
+	 <form id="frm_login">
 	 <table class="table table-condensed">
 	 	<tr>
 	 		<td>Username</td>
-	 		<td><input type="text" name="username" id="username"></td>
+	 		<td><input  type="text" name="username" id="username"></td>
 	 	</tr>
 	 	<tr>
 	 		<td>Mật khẩu</td>
-	 		<td><input type="text" name="password" id="password"></td>
+	 		<td><input type="password" name="password" id="password"></td>
 	 	</tr>
 	 	<tr>
-	 		<td colspan="2"><span class="btn btn-warning btn-login">Đăng nhập</span></td>
+	 		<td colspan="2"><span class="btn btn-warning btn-login btn-lg">Đăng nhập</span></td>
 	 	</tr>
-	 </table>	
+	 </table>
+	 </form>	
 	 	
 	 	
 	 	
@@ -38,17 +44,41 @@
     </body>
 </html>
 
-<script >
-// Check browser support
-if (typeof(Storage) !== "undefined") {
+<script type="text/javascript">
 
-    localStorage.setItem("username", "Smith");
-    username = localStorage.getItem("username");
-    if(username.length > 0){
+var domain = "http://localhost/cbccvc_dev/index.php?option=com_snv&view=egovapp&task=home";
 
-    }
-    alert(username);
-} else {
-    alert("Sorry, your browser does not support Web Storage...");
+$(document).ready(function() {
+
+	var username = localStorage.getItem("username");
+    if(username ){
+    	loadEgov();
+    } 
+	
+	$(".btn-login").click(function(event) {
+		url = domain+"index.php?option=com_snv&view=egovapp&task=login&format=raw";
+		jQuery.post(url, $("#frm_login").serialize() ,function(data){
+			$("#div_main").html(data);
+			if($("#tableCustomCSS").length > 0){
+				username = $("#tableCustomCSS > tbody > tr:nth-child(2) > td > label.egov-label-bold").text().trim();
+				alert(username);
+			    localStorage.setItem("username", username); 
+
+			    
+				
+			}
+		})
+	});
+
+});
+
+function loadEgov(){
+
+	window.location = "egov.html";
+	// window.open("egov.html");
+
 }
+
+
+
 </script>
